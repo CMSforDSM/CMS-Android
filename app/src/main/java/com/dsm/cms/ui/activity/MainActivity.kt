@@ -1,7 +1,8 @@
-package com.dsm.cms
+package com.dsm.cms.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dsm.cms.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

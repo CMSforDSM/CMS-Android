@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CMS_Android</string>
+
+    <string name="login">로그인</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+
+    <string name="success_login">로그인에 성공했습니다.</string>
+    <string name="fail_login">로그인에 실패했습니다.</string>
+    <string name="check_id_pw">아이디 또는 비밀번호를 입력해주세요.</string>
+
 </resources>

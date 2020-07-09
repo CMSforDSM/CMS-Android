@@ -7,6 +7,11 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
+/.idea/discord.xml
+/.idea/sonarlint
+/.idea/sonarlint/issuestore
+
 .DS_Store
 /build
 /captures

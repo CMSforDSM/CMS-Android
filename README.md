@@ -4,8 +4,6 @@ CMS(Club Management Service)는 학교 내에서 동아리 관리를 편리하�
 
 아직 프로젝트 초기 개발 단계이기 때문에 미완성된 부분이나 좋지 않은 로직이 존재할 수 있고, 새로운 기술들이 적용될 수 있습니다.
 
-*가능하다면 프로젝트에 **Dagger-Hilt**가 적용될 예정입니다.*
-
 ## Team 
 
 [홍성하](https://github.com/KRMKGOLD)
@@ -60,7 +58,7 @@ Glo-Issue-Number [Header] Title
   - OkHttp
 - Firebase
   - Firebase Cloud Messaging(FCM)
-- *DI(Dependency Injection)*
-  - *Dagger-Hilt*
+- DI(Dependency Injection)
+  - koin
 - Image
   - Glide

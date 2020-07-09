@@ -11,13 +11,17 @@ class TokenInterceptor (
     private val tokenApi: TokenApi
 ) : Interceptor {
 
+    companion object {
+        private const val strAccessToken = "X-Access-Token"
+    }
+
     override fun intercept(chain: Interceptor.Chain): Response {
         val accessToken = prefStorage.getAccessToken()
         val refreshToken = prefStorage.getRefreshToken()
 
         val request = chain.request().newBuilder().run {
-            removeHeader("Authorization")
-            addHeader("Authorization", accessToken)
+            removeHeader(strAccessToken)
+            addHeader(strAccessToken, accessToken)
             build()
         }
 
@@ -33,8 +37,8 @@ class TokenInterceptor (
                 response.close()
                 chain.proceed(
                     request.newBuilder().run {
-                        removeHeader("Authorization")
-                        addHeader("Authorization", newToken)
+                        removeHeader(strAccessToken)
+                        addHeader(strAccessToken, newToken)
                         build()
                     }
                 )

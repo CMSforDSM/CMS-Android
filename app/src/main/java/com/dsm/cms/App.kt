@@ -5,6 +5,7 @@ import com.dsm.cms.di.apiModule
 import com.dsm.cms.di.dataSourceModule
 import com.dsm.cms.di.repositoryModule
 import com.dsm.cms.di.viewModelModule
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 class App : Application() {
@@ -12,10 +13,15 @@ class App : Application() {
         super.onCreate()
 
         startKoin {
-            modules(dataSourceModule)
-            modules(repositoryModule)
-            modules(viewModelModule)
-            modules(apiModule)
+            androidContext(this@App)
+            modules(
+                listOf(
+                    dataSourceModule,
+                    repositoryModule,
+                    viewModelModule,
+                    apiModule
+                )
+            )
         }
     }
 }

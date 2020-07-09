@@ -64,10 +64,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/id"
-                    app:errorEnabled="@{viewModel.isSucceed}"
                     app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -84,12 +82,11 @@
                     android:id="@+id/textInputLayout5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:hint="@string/password"
                     app:endIconMode="password_toggle"
-                    app:errorEnabled="@{viewModel.isSucceed}"
                     app:layout_constraintBottom_toTopOf="@+id/btn_login"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
@@ -102,10 +99,10 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_login"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:onClick="@{() -> viewModel.onLoginButtonClick()}"
                     android:text="@string/login"

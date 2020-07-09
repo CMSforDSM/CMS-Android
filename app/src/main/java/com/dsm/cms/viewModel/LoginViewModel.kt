@@ -3,18 +3,20 @@ package com.dsm.cms.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dsm.cms.R
+import com.dsm.cms.domain.repository.AuthRepository
 import com.dsm.cms.util.SingleLiveEvent
+import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(
+    private val authRepository: AuthRepository
+) : ViewModel() {
     val id = MutableLiveData("")
     val password = MutableLiveData("")
 
     private val _isLogin = MutableLiveData(false)
     val isLogin: LiveData<Boolean> = _isLogin
-
-    private val _isSucceed = MutableLiveData(false)
-    val isSucceed: LiveData<Boolean> = _isSucceed
 
     private val _toastEvent = SingleLiveEvent<Int>()
     val toastEvent: LiveData<Int> = _toastEvent
@@ -28,17 +30,28 @@ class LoginViewModel : ViewModel() {
     private val _finishLoginEvent = SingleLiveEvent<Unit>()
     val finishLoginEvent: LiveData<Unit> = _finishLoginEvent
 
-    fun onLoginButtonClick() {
+    fun onLoginButtonClick() = viewModelScope.launch {
         if (!id.value.isNullOrBlank() && !password.value.isNullOrBlank()) {
-            _toastEvent.value = R.string.success_login
-            _isSucceed.value = true
+            _isLogin.postValue(true)
+            try {
+                authRepository.login(
+                    hashMapOf(
+                        "id" to id.value,
+                        "password" to password.value
+                    )
+                )
 
-            _hideKeyEvent.call()
-            _navigateMainEvent.call()
-            _finishLoginEvent.call()
+                _toastEvent.value = R.string.success_login
+
+                _hideKeyEvent.call()
+                _navigateMainEvent.call()
+                _finishLoginEvent.call()
+            } catch (e: Exception) {
+                _toastEvent.value = R.string.fail_login
+            }
+            _isLogin.postValue(false)
         } else {
             _toastEvent.value = R.string.check_id_pw
-            _isSucceed.value = false
         }
     }
 }

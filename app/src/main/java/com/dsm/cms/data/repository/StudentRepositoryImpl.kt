@@ -5,14 +5,12 @@ import com.dsm.cms.data.pref.PrefStorage
 import com.dsm.cms.domain.repository.StudentRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class StudentRepositoryImpl(
     private val remoteStudentDataSource: RemoteStudentDataSource,
-    private val prefStorage: PrefStorage,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val prefStorage: PrefStorage
 ) : StudentRepository {
-    override suspend fun getStudentInfo() = withContext(ioDispatcher) {
+    override suspend fun getStudentInfo() {
         val response = remoteStudentDataSource.getStudentInfo()
         prefStorage.setStudent(response)
     }

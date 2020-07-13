@@ -6,4 +6,8 @@ data class Student(
     val name: String,
     val club: String,
     val id: String
-)
+) {
+    override fun toString(): String {
+        return "$role, $studentNumber, $name, $club, $id"
+    }
+}

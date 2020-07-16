@@ -5,9 +5,10 @@ data class Student(
     val studentNumber: String,
     val name: String,
     val club: String,
-    val id: String
+    val id: String,
+    val introduce: String
 ) {
     override fun toString(): String {
-        return "$role, $studentNumber, $name, $club, $id"
+        return "$role, $studentNumber, $name, $club, $id, $introduce"
     }
 }

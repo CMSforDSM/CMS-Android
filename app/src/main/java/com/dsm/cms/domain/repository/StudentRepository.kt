@@ -1,5 +1,5 @@
 package com.dsm.cms.domain.repository
 
 interface StudentRepository {
-    suspend fun getStudentInfo()
+    suspend fun setStudentInfo()
 }

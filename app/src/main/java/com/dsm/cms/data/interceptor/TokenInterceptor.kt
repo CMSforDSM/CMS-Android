@@ -45,6 +45,7 @@ class TokenInterceptor (
             } else {
                 prefStorage.deleteAccessToken()
                 prefStorage.deleteRefreshToken()
+                prefStorage.deleteStudent()
                 response
             }
         } else {

@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.cms.R
 import com.dsm.cms.domain.repository.AuthRepository
+import com.dsm.cms.domain.repository.StudentRepository
 import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val studentRepository: StudentRepository
 ) : ViewModel() {
     val id = MutableLiveData("")
     val password = MutableLiveData("")
@@ -40,6 +42,8 @@ class LoginViewModel(
                         "password" to password.value
                     )
                 )
+
+                studentRepository.getStudentInfo()
 
                 _toastEvent.value = R.string.success_login
 

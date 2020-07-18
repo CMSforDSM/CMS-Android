@@ -16,6 +16,9 @@ class SplashViewModel(
     private val _navigateMainEvent = SingleLiveEvent<Unit>()
     val navigateMainEvent: LiveData<Unit> = _navigateMainEvent
 
+    private val _finishSplashEvent = SingleLiveEvent<Unit>()
+    val finishSplashEvent: LiveData<Unit> = _finishSplashEvent
+
     init {
         getStudentInfo()
     }
@@ -25,8 +28,10 @@ class SplashViewModel(
             studentRepository.setStudentInfo()
 
             _navigateMainEvent.call()
+            _finishSplashEvent.call()
         } catch (e: Exception) {
             _navigateLoginEvent.call()
+            _finishSplashEvent.call()
         }
     }
 }

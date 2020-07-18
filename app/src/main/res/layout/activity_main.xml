@@ -17,48 +17,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <fragment
+            android:id="@+id/frag_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.activity.MainActivity">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appBarLayout_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/item_club_main"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/toolbar_main"
-                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:navigationIcon="@drawable/ic_menu"
-                    app:title="동아리 목록" />
-
-            </com.google.android.material.appbar.AppBarLayout>
-
-            <fragment
-                android:id="@+id/frag_main"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:navGraph="@navigation/nav_graph_main" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            app:defaultNavHost="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:navGraph="@navigation/nav_graph_main" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_main"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:headerLayout="@layout/drawer_header"
+            app:headerLayout="@layout/nav_header"
             app:menu="@menu/drawer_menu"
             app:setClubInHeader="@{viewModel.myClubInfo}"
             app:setStudentInHeader="@{viewModel.studentInfo}" />

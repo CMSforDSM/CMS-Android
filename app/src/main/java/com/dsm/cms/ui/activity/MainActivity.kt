@@ -47,7 +47,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun onBackPressed() {
-
         if (binding.drawerLayoutMain.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
         } else if (appBarConfiguration.topLevelDestinations.contains(navController.currentDestination?.id)) {

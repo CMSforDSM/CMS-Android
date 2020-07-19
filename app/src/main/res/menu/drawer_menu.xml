@@ -16,4 +16,11 @@
         android:id="@id/nav_noti_fragment"
         android:icon="@drawable/ic_noti"
         android:title="@string/notice" />
+
+    <group>
+        <item
+            android:id="@+id/menu_logout"
+            android:icon="@drawable/ic_lock"
+            android:title="@string/logout" />
+    </group>
 </menu>

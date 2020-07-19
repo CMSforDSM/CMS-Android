@@ -19,12 +19,12 @@ class MainViewModel(
     val studentInfo: LiveData<Student> = _studentInfo
 
     private val _myClubInfo =
-        MutableLiveData(Club("", "", arrayListOf(), "", ""))
+        MutableLiveData(Club("", "", arrayListOf(), "", "Change"))
     val myClubInfo : LiveData<Club> = _myClubInfo
 
     init {
-//        getStudentInfo()
-//        getClubInfo(_studentInfo.value?.club!!)
+        getStudentInfo()
+        getClubInfo(_studentInfo.value?.club!!)
     }
 
     private fun getStudentInfo() {

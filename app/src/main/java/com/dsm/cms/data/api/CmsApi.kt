@@ -1,10 +1,9 @@
 package com.dsm.cms.data.api
 
+import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.response.TokenResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface CmsApi {
     // auth
@@ -14,4 +13,8 @@ interface CmsApi {
     // student
     @GET("users/me")
     suspend fun getStudentInfo(): Student
+
+    // club
+    @GET("clubs/{clubName}")
+    suspend fun getClubInfo(@Path("clubName") clubName: String): Club
 }

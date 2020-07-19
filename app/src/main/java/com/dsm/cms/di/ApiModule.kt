@@ -11,7 +11,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val baseURL = "http://61ec04bfc21a.ngrok.io"
+private const val baseURL = "http://48ba6c353cfd.ngrok.io"
 
 val apiModule = module {
 

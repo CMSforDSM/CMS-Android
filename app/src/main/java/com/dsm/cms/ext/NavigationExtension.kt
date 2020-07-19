@@ -1,5 +1,6 @@
 package com.dsm.cms.ext
 
+import android.util.Log
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.dsm.cms.domain.entity.Club
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.nav_header.view.*
 @BindingAdapter("setClubInHeader")
 fun NavigationView.setClubInfo(club: Club) {
     val view = this.getHeaderView(0)
+    Log.d("club", club.toString())
     view.tv_club_name_header.text = club.clubName
     view.tv_club_info_header.text = club.introduce
     Glide.with(this.context).load(club.logo).into(view.iv_club_icon_header)
@@ -17,6 +19,7 @@ fun NavigationView.setClubInfo(club: Club) {
 
 @BindingAdapter("setStudentInHeader")
 fun NavigationView.setStudentInfo(student: Student) {
+    Log.d("student", student.toString())
     val view = this.getHeaderView(0)
     view.tv_student_name_drawer.text = student.name
     view.tv_student_info_drawer.text = student.introduce

@@ -28,7 +28,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.viewModel = viewModel
 
         navController = findNavController(R.id.frag_main)
-        binding.navigationMain.setupWithNavController(navController)
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -39,12 +38,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             ), binding.drawerLayoutMain
         )
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.navigationMain.setupWithNavController(navController)
+        binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
+
+//        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.frag_main).navigateUp(appBarConfiguration)
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        return findNavController(R.id.frag_main).navigateUp(appBarConfiguration)
+//    }
 
     override fun onBackPressed() {
         if (binding.drawerLayoutMain.isDrawerOpen(GravityCompat.START)) {

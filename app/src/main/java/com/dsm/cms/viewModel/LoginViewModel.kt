@@ -43,7 +43,7 @@ class LoginViewModel(
                     )
                 )
 
-                studentRepository.getStudentInfo()
+                studentRepository.setStudentInfo()
 
                 _toastEvent.value = R.string.success_login
 

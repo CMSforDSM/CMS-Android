@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/nav_main_fragment">
+
+    <fragment
+        android:id="@+id/nav_main_fragment"
+        android:name="com.dsm.cms.ui.fragment.MainFragment"
+        android:label="동아리 메인"
+        tools:layout="@layout/fragment_main">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_announcement_fragment"
+        android:name="com.dsm.cms.ui.fragment.AnnouncementFragment"
+        android:label="모집공고"
+        tools:layout="@layout/fragment_announcement">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_market_fragment"
+        android:name="com.dsm.cms.ui.fragment.MarketFragment"
+        android:label="이적시장"
+        tools:layout="@layout/fragment_market">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_noti_fragment"
+        android:name="com.dsm.cms.ui.fragment.NotiFragment"
+        android:label="공지사항"
+        tools:layout="@layout/fragment_noti">
+
+    </fragment>
+
+</navigation>

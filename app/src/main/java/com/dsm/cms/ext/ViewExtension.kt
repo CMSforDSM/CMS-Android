@@ -8,19 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 
 inline fun <reified T : Activity> AppCompatActivity.setupNavigateEvent(navigateEvent: LiveData<Unit>) {
     navigateEvent.observe(this, Observer {
         startActivity(Intent(this, T::class.java))
-    })
-}
-
-fun Fragment.setupNavigateEvent(
-    navigateEvent: LiveData<Int>
-) {
-    navigateEvent.observe(viewLifecycleOwner, Observer { navigateId ->
-        findNavController().navigate(navigateId)
     })
 }
 

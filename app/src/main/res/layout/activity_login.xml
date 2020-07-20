@@ -18,13 +18,13 @@
         tools:context=".ui.activity.LoginActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/login_above_layout"
+            android:id="@+id/layout_above_login"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/layout_downwards_layout"
+            app:layout_constraintBottom_toTopOf="@+id/layout_downwards_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/layout_downwards_layout"
+            app:layout_constraintStart_toEndOf="@+id/layout_downwards_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -40,7 +40,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_downwards_layout"
+            android:id="@+id/layout_downwards_login"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_above_layout">
+            app:layout_constraintTop_toBottomOf="@+id/layout_above_login">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

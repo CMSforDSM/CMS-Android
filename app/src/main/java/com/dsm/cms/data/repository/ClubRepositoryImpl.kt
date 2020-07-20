@@ -7,6 +7,11 @@ import com.dsm.cms.domain.repository.ClubRepository
 class ClubRepositoryImpl(
     private val remoteClubDataSource: RemoteClubDataSource
 ) : ClubRepository {
-override suspend fun getClubInfo(clubName: String): Club =
-    remoteClubDataSource.getClubInfo(clubName)
+    override suspend fun getClubInfo(clubName: String): Club {
+        return remoteClubDataSource.getClubInfo(clubName)
+    }
+
+    override suspend fun getClubsInfo(): List<Club> {
+        return remoteClubDataSource.getClubsInfo()
+    }
 }

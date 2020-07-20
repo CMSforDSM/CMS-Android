@@ -5,6 +5,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 @BindingAdapter("imageRes")
-fun ImageView.setClubInfo(url: String) {
+fun ImageView.setImageUrl(url: String) {
     Glide.with(this.context).load(url).into(this)
 }

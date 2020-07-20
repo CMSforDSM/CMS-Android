@@ -17,4 +17,8 @@ interface CmsApi {
     // club
     @GET("clubs/{clubName}")
     suspend fun getClubInfo(@Path("clubName") clubName: String): Club
+
+    // club
+    @GET("clubs")
+    suspend fun getClubsInfo(): List<Club>
 }

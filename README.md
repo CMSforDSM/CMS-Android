@@ -50,9 +50,8 @@ Glo-Issue-Number [Header] Title
   - UI
     - RecyclerView
     - Navigation Drawer
-- ReactiveX
-  - RxJava2
-  - RxAndroid
+- Kotlin
+  - Coroutines
 - Networking
   - Retrofit & Gson
   - OkHttp

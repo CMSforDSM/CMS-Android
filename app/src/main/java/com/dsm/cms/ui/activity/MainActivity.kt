@@ -40,13 +40,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         binding.navigationMain.setupWithNavController(navController)
         binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
-
-//        setupActionBarWithNavController(navController, appBarConfiguration)
     }
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        return findNavController(R.id.frag_main).navigateUp(appBarConfiguration)
-//    }
 
     override fun onBackPressed() {
         if (binding.drawerLayoutMain.isDrawerOpen(GravityCompat.START)) {

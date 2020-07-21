@@ -1,7 +1,9 @@
 package com.dsm.cms.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dsm.cms.databinding.ItemClubBinding
@@ -34,9 +36,8 @@ class MainClubAdapter : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>
     inner class MainClubViewHolder(private val binding: ItemClubBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(club: Club) {
-            Glide.with(itemView.context).load(club.logo).into(binding.ivClubIconItem)
-            binding.tvClubNameItem.text = club.clubName
-            binding.tvClubInfoItem.text = club.introduce
+            binding.club = club
+            binding.btnItem.visibility = View.INVISIBLE
         }
     }
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsm.cms.data.pref.PrefStorage
 import com.dsm.cms.domain.entity.Club
+import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
 import kotlinx.coroutines.launch
@@ -25,10 +26,19 @@ class MainViewModel(
     private val _clubsInfo = MutableLiveData<List<Club>>(arrayListOf())
     val clubsInfo: LiveData<List<Club>> = _clubsInfo
 
+    private val _recruitments = MutableLiveData<List<Post>>(arrayListOf())
+    val recruitments: LiveData<List<Post>> = _recruitments
+
     init {
+        getServerData()
+
+    }
+
+    private fun getServerData() {
         setStudentInfo()
         setClubInfo(_studentInfo.value?.club!!)
         setClubsInfo()
+        setRecruitments()
     }
 
     private fun setStudentInfo() {
@@ -42,5 +52,10 @@ class MainViewModel(
     private fun setClubsInfo() = viewModelScope.launch {
         _clubsInfo.value = clubRepository.getClubsInfo()
     }
+
+    private fun setRecruitments() = viewModelScope.launch {
+//        _recruitments.value = postRepository.getPosts()
+    }
+
 
 }

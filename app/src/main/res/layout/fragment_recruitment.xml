@@ -13,11 +13,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragment.MainFragment">
+        tools:context=".ui.fragment.RecruitmentFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main"
-            clubs_list="@{viewModel.clubsInfo}"
+            android:id="@+id/rv_recruitment"
+            recruitment_list="@{viewModel.recruitments}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

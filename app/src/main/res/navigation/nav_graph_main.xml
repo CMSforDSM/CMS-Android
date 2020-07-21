@@ -15,9 +15,9 @@
 
     <fragment
         android:id="@+id/nav_announcement_fragment"
-        android:name="com.dsm.cms.ui.fragment.AnnouncementFragment"
+        android:name="com.dsm.cms.ui.fragment.RecruitmentFragment"
         android:label="모집공고"
-        tools:layout="@layout/fragment_announcement">
+        tools:layout="@layout/fragment_recruitment">
 
     </fragment>
 

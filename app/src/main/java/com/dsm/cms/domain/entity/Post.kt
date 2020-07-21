@@ -18,5 +18,6 @@ data class Post(
 
     val content: String,
 
+    @SerializedName("date_time")
     val dateTime: String
 )

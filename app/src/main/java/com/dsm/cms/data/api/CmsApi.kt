@@ -1,6 +1,7 @@
 package com.dsm.cms.data.api
 
 import com.dsm.cms.domain.entity.Club
+import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.response.TokenResponse
 import retrofit2.http.*
@@ -18,7 +19,10 @@ interface CmsApi {
     @GET("clubs/{clubName}")
     suspend fun getClubInfo(@Path("clubName") clubName: String): Club
 
-    // club
     @GET("clubs")
     suspend fun getClubsInfo(): List<Club>
+
+    // post
+    @GET("posts")
+    suspend fun getPosts(@Query("type") type: String): List<Post>
 }

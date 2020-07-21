@@ -9,10 +9,12 @@ import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
+import com.dsm.cms.domain.repository.PostRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val clubRepository: ClubRepository,
+    private val postRepository: PostRepository,
     private val prefStorage: PrefStorage
 ) : ViewModel() {
     private val _studentInfo =
@@ -31,7 +33,6 @@ class MainViewModel(
 
     init {
         getServerData()
-
     }
 
     private fun getServerData() {
@@ -54,8 +55,6 @@ class MainViewModel(
     }
 
     private fun setRecruitments() = viewModelScope.launch {
-//        _recruitments.value = postRepository.getPosts()
+        _recruitments.value = postRepository.getPosts("RECRUITMENT")
     }
-
-
 }

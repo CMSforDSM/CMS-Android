@@ -22,7 +22,7 @@ class MainViewModel(
     val studentInfo: LiveData<Student> = _studentInfo
 
     private val _myClubInfo =
-        MutableLiveData(Club("", "", arrayListOf(), "", ""))
+        MutableLiveData(Club("", "동아리에 가입되어 있지 않습니다.", arrayListOf(), "", "미가입"))
     val myClubInfo: LiveData<Club> = _myClubInfo
 
     private val _clubsInfo = MutableLiveData<List<Club>>(arrayListOf())
@@ -46,8 +46,10 @@ class MainViewModel(
         _studentInfo.value = prefStorage.getStudent()
     }
 
-    private fun setClubInfo(clubName: String) = viewModelScope.launch {
-        _myClubInfo.value = clubRepository.getClubInfo(clubName)
+    private fun setClubInfo(clubName: String?) = viewModelScope.launch {
+        clubName?.let {
+            _myClubInfo.value = clubRepository.getClubInfo(clubName)
+        }
     }
 
     private fun setClubsInfo() = viewModelScope.launch {

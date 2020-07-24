@@ -10,6 +10,7 @@ import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
 import com.dsm.cms.domain.repository.PostRepository
+import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -33,6 +34,12 @@ class MainViewModel(
 
     private val _notices = MutableLiveData<List<Post>>(arrayListOf())
     val notices: LiveData<List<Post>> = _notices
+
+    private val _navigateLoginEvent = SingleLiveEvent<Unit>()
+    val navigateLoginEvent: LiveData<Unit> = _navigateLoginEvent
+
+    private val _finishMainEvent = SingleLiveEvent<Unit>()
+    val finishMainEvent: LiveData<Unit> = _finishMainEvent
 
     init {
         getServerData()

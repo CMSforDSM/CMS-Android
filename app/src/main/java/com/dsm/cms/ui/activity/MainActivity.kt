@@ -2,12 +2,15 @@ package com.dsm.cms.ui.activity
 
 import android.os.Bundle
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseActivity
 import com.dsm.cms.databinding.ActivityMainBinding
+import com.dsm.cms.ext.setupNavigateEvent
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,6 +41,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         binding.navigationMain.setupWithNavController(navController)
         binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
+
+        viewModel.finishMainEvent.observe(this, Observer { finish() })
+
+        setupNavigate()
     }
 
     override fun onBackPressed() {
@@ -48,5 +55,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun setupNavigate() {
+        setupNavigateEvent<LoginActivity>(viewModel.navigateLoginEvent)
     }
 }

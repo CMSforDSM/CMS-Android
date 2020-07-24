@@ -34,7 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 R.id.nav_main_fragment,
                 R.id.nav_announcement_fragment,
                 R.id.nav_market_fragment,
-                R.id.nav_noti_fragment
+                R.id.nav_notice_fragment
             ), binding.drawerLayoutMain
         )
 

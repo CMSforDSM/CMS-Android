@@ -30,10 +30,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_noti_fragment"
-        android:name="com.dsm.cms.ui.fragment.NotiFragment"
+        android:id="@+id/nav_notice_fragment"
+        android:name="com.dsm.cms.ui.fragment.NoticeFragment"
         android:label="공지사항"
-        tools:layout="@layout/fragment_noti">
+        tools:layout="@layout/fragment_notice">
 
     </fragment>
 

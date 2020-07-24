@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.View
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseFragment
-import com.dsm.cms.databinding.FragmentRecruitmentBinding
+import com.dsm.cms.databinding.FragmentNoticeBinding
 import com.dsm.cms.ui.adapter.MainPostAdapter
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class RecruitmentFragment : BaseFragment<FragmentRecruitmentBinding>() {
-
+class NoticeFragment : BaseFragment<FragmentNoticeBinding>() {
     override val layoutResId: Int
-        get() = R.layout.fragment_recruitment
+        get() = R.layout.fragment_notice
 
     private val viewModel: MainViewModel by sharedViewModel()
 
@@ -26,9 +25,8 @@ class RecruitmentFragment : BaseFragment<FragmentRecruitmentBinding>() {
         binding.viewModel = viewModel
     }
 
-
     private fun setUpRecyclerView() {
-        binding.rvRecruitment.adapter = postAdapter
-        binding.rvRecruitment.setHasFixedSize(true)
+        binding.rvNotices.adapter = postAdapter
+        binding.rvNotices.setHasFixedSize(true)
     }
 }

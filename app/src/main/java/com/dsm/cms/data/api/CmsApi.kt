@@ -24,5 +24,13 @@ interface CmsApi {
 
     // post
     @GET("posts")
-    suspend fun getPosts(@Query("type") type: String): List<Post>
+    suspend fun getPosts(
+        @Query("type") type: String
+    ): List<Post>
+
+    @GET("posts")
+    suspend fun getPosts(
+        @Query("type") type: String,
+        @Query("club") clubName: String
+    ): List<Post>
 }

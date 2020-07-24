@@ -3,13 +3,14 @@ package com.dsm.cms.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.dsm.cms.databinding.ItemClubBinding
 import com.dsm.cms.domain.entity.Club
+import com.dsm.cms.viewModel.MainViewModel
 
-class MainClubAdapter : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>() {
+class MainClubAdapter(
+    private val mainViewModel: MainViewModel
+) : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>() {
     private var items: List<Club> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainClubViewHolder {
@@ -38,6 +39,10 @@ class MainClubAdapter : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>
         fun bind(club: Club) {
             binding.club = club
             binding.btnItem.visibility = View.INVISIBLE
+
+            binding.layoutItemClub.setOnClickListener {
+                mainViewModel.startPostActivity()
+            }
         }
     }
 }

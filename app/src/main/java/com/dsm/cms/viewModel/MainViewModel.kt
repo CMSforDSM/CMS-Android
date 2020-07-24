@@ -10,6 +10,7 @@ import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
 import com.dsm.cms.domain.repository.PostRepository
+import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -30,6 +31,9 @@ class MainViewModel(
 
     private val _recruitments = MutableLiveData<List<Post>>(arrayListOf())
     val recruitments: LiveData<List<Post>> = _recruitments
+
+    private val _navigatePostEvent = SingleLiveEvent<Unit>()
+    val navigatePostEvent: LiveData<Unit> = _navigatePostEvent
 
     init {
         getServerData()
@@ -57,4 +61,6 @@ class MainViewModel(
     private fun setRecruitments() = viewModelScope.launch {
         _recruitments.value = postRepository.getPosts("RECRUITMENT")
     }
+
+    fun startPostActivity() = _navigatePostEvent.call()
 }

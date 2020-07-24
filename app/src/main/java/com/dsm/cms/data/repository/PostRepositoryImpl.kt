@@ -8,8 +8,8 @@ import com.dsm.cms.ext.setDateAsOfToday
 class PostRepositoryImpl(
     private val remotePostDataSource: RemotePostDataSource
 ) : PostRepository {
-    override suspend fun getPosts(type: String): List<Post> {
-        val posts = remotePostDataSource.getPosts(type)
+    override suspend fun getPosts(type: String, clubName: String): List<Post> {
+        val posts = remotePostDataSource.getPosts(type, clubName)
 
         posts.forEach { it.dateTime = setDateAsOfToday(it.dateTime) }
 

@@ -1,7 +1,6 @@
 package com.dsm.cms.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -10,7 +9,6 @@ import com.dsm.cms.R
 import com.dsm.cms.base.BaseActivity
 import com.dsm.cms.databinding.ActivityMainBinding
 import com.dsm.cms.viewModel.MainViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -34,7 +32,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 R.id.nav_main_fragment,
                 R.id.nav_announcement_fragment,
                 R.id.nav_market_fragment,
-                R.id.nav_noti_fragment
+                R.id.nav_notice_fragment
             ), binding.drawerLayoutMain
         )
 

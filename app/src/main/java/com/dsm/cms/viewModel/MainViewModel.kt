@@ -22,7 +22,7 @@ class MainViewModel(
     val studentInfo: LiveData<Student> = _studentInfo
 
     private val _myClubInfo =
-        MutableLiveData(Club("", "", arrayListOf(), "", ""))
+        MutableLiveData(Club("", "동아리에 가입되어 있지 않습니다.", arrayListOf(), "", "미가입"))
     val myClubInfo: LiveData<Club> = _myClubInfo
 
     private val _clubsInfo = MutableLiveData<List<Club>>(arrayListOf())
@@ -30,6 +30,9 @@ class MainViewModel(
 
     private val _recruitments = MutableLiveData<List<Post>>(arrayListOf())
     val recruitments: LiveData<List<Post>> = _recruitments
+
+    private val _notices = MutableLiveData<List<Post>>(arrayListOf())
+    val notices: LiveData<List<Post>> = _notices
 
     init {
         getServerData()
@@ -40,14 +43,17 @@ class MainViewModel(
         setClubInfo(_studentInfo.value?.club!!)
         setClubsInfo()
         setRecruitments()
+        setNotices()
     }
 
     private fun setStudentInfo() {
         _studentInfo.value = prefStorage.getStudent()
     }
 
-    private fun setClubInfo(clubName: String) = viewModelScope.launch {
-        _myClubInfo.value = clubRepository.getClubInfo(clubName)
+    private fun setClubInfo(clubName: String?) = viewModelScope.launch {
+        clubName?.let {
+            _myClubInfo.value = clubRepository.getClubInfo(clubName)
+        }
     }
 
     private fun setClubsInfo() = viewModelScope.launch {
@@ -56,5 +62,9 @@ class MainViewModel(
 
     private fun setRecruitments() = viewModelScope.launch {
         _recruitments.value = postRepository.getPosts("RECRUITMENT")
+    }
+
+    private fun setNotices() = viewModelScope.launch {
+        _notices.value = postRepository.getPosts("NOTIFICATION")
     }
 }

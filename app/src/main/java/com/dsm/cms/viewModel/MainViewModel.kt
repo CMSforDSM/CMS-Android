@@ -71,6 +71,4 @@ class MainViewModel(
     private fun setNotices() = viewModelScope.launch {
         _notices.value = postRepository.getPosts("NOTIFICATION")
     }
-
-    fun startPostActivity() = _navigatePostEvent.call()
 }

@@ -5,12 +5,15 @@
 
     <data>
 
+        <import type="com.dsm.cms.ext.StringExtKt" />
+
         <variable
             name="post"
             type="com.dsm.cms.domain.entity.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_recruitment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -34,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="@{post.dateTime}"
+                    android:text="@{StringExtKt.setDateAsOfToday(post.dateTime)}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="14:50" />
@@ -61,9 +64,9 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
                     android:text="@{post.writer}"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_title_recruitment"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="황신우" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

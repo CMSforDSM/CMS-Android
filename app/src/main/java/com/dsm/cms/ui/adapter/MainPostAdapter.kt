@@ -1,10 +1,14 @@
 package com.dsm.cms.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.databinding.ItemRecruitmentBinding
 import com.dsm.cms.domain.entity.Post
+import com.dsm.cms.ext.setDateAsOfToday
+import com.dsm.cms.ext.setDateManually
+import com.dsm.cms.ui.activity.PostActivity
 
 class MainPostAdapter :
     RecyclerView.Adapter<MainPostAdapter.MainPostViewHolder>() {
@@ -36,6 +40,15 @@ class MainPostAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
             binding.post = post
+
+            binding.layoutRecruitment.setOnClickListener {
+                itemView.context.apply {
+                    val intent = Intent(this, PostActivity::class.java)
+                    post.dateTime = setDateManually(post.dateTime)
+                    intent.putExtra("post", post)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }

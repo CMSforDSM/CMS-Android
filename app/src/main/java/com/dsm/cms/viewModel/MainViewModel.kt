@@ -10,6 +10,7 @@ import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
 import com.dsm.cms.domain.repository.PostRepository
+import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class MainViewModel(

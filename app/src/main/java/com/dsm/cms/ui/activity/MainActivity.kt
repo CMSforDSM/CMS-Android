@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseActivity
 import com.dsm.cms.databinding.ActivityMainBinding
+import com.dsm.cms.ext.setupNavigateEvent
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.databinding.ItemRecruitmentBinding
 import com.dsm.cms.domain.entity.Post
+import com.dsm.cms.ext.setDateAsOfToday
+import com.dsm.cms.ext.setDateManually
 import com.dsm.cms.ui.activity.PostActivity
 
 class MainPostAdapter :
@@ -42,7 +44,8 @@ class MainPostAdapter :
             binding.layoutRecruitment.setOnClickListener {
                 itemView.context.apply {
                     val intent = Intent(this, PostActivity::class.java)
-                    intent.putExtra("post_id", post.postId)
+                    post.dateTime = setDateManually(post.dateTime)
+                    intent.putExtra("post", post)
                     startActivity(intent)
                 }
             }

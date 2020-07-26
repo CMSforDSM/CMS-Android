@@ -1,5 +1,6 @@
 package com.dsm.cms.di
 
+import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.viewModel.LoginViewModel
 import com.dsm.cms.viewModel.MainViewModel
 import com.dsm.cms.viewModel.PostViewModel
@@ -14,5 +15,5 @@ val viewModelModule = module {
 
     viewModel { MainViewModel(get(), get(), get()) }
 
-    viewModel { (postId: Int) -> PostViewModel(postId) }
+    viewModel { (post: Post) -> PostViewModel(post, get()) }
 }

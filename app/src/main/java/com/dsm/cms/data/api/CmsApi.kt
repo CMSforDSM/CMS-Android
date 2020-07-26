@@ -33,4 +33,9 @@ interface CmsApi {
         @Query("type") type: String,
         @Query("club") clubName: String
     ): List<Post>
+
+    @GET("posts/{post_id}")
+    suspend fun getDetailPost(
+        @Path("post_id") postId: Int
+    ): Post
 }

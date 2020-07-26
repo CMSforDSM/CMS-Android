@@ -1,6 +1,7 @@
 package com.dsm.cms.ext
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast

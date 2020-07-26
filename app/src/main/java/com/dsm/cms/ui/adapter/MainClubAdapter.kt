@@ -8,9 +8,7 @@ import com.dsm.cms.databinding.ItemClubBinding
 import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.viewModel.MainViewModel
 
-class MainClubAdapter(
-    private val mainViewModel: MainViewModel
-) : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>() {
+class MainClubAdapter() : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>() {
     private var items: List<Club> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainClubViewHolder {
@@ -39,10 +37,6 @@ class MainClubAdapter(
         fun bind(club: Club) {
             binding.club = club
             binding.btnItem.visibility = View.INVISIBLE
-
-            binding.layoutItemClub.setOnClickListener {
-                mainViewModel.startPostActivity()
-            }
         }
     }
 }

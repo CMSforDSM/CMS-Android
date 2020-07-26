@@ -35,9 +35,6 @@ class MainViewModel(
     private val _notices = MutableLiveData<List<Post>>(arrayListOf())
     val notices: LiveData<List<Post>> = _notices
 
-    private val _navigatePostEvent = SingleLiveEvent<Unit>()
-    val navigatePostEvent: LiveData<Unit> = _navigatePostEvent
-
     init {
         getServerData()
     }

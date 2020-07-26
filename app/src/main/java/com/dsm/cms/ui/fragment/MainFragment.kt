@@ -15,7 +15,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val viewModel: MainViewModel by sharedViewModel()
 
-    private val clubsAdapter by lazy { MainClubAdapter(viewModel) }
+    private val clubsAdapter by lazy { MainClubAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

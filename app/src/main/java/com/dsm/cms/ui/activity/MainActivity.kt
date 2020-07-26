@@ -40,8 +40,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         binding.navigationMain.setupWithNavController(navController)
         binding.toolbarMain.setupWithNavController(navController, appBarConfiguration)
-
-        setupNavigate()
     }
 
     override fun onBackPressed() {
@@ -52,9 +50,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         } else {
             super.onBackPressed()
         }
-    }
-
-    private fun setupNavigate() {
-        setupNavigateEvent<PostActivity>(viewModel.navigatePostEvent)
     }
 }

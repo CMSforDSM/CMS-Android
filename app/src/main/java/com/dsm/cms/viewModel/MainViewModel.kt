@@ -38,12 +38,6 @@ class MainViewModel(
     private val _resumes = MutableLiveData<List<Post>>(arrayListOf())
     val resumes: LiveData<List<Post>> = _resumes
 
-    private val _navigateLoginEvent = SingleLiveEvent<Unit>()
-    val navigateLoginEvent: LiveData<Unit> = _navigateLoginEvent
-
-    private val _finishMainEvent = SingleLiveEvent<Unit>()
-    val finishMainEvent: LiveData<Unit> = _finishMainEvent
-
     init {
         getServerData()
     }

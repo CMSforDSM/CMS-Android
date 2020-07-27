@@ -23,5 +23,9 @@ class PostActivity : BaseActivity<ActivityPostBinding>() {
         post = intent.getSerializableExtra("post") as Post
 
         binding.viewModel = viewModel
+
+        binding.toolbarPost.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.ui.adapter.MainClubAdapter
+import com.dsm.cms.ui.adapter.MainResumeAdapter
 import com.dsm.cms.ui.adapter.MainPostAdapter
 
 @BindingAdapter("clubs_list")
@@ -13,9 +14,14 @@ fun RecyclerView.setClubsInRv(clubs: List<Club>) {
     adapter.setList(clubs)
 }
 
-
 @BindingAdapter("post_list")
 fun RecyclerView.setPostInRv(posts: List<Post>) {
     val adapter = adapter as MainPostAdapter
+    adapter.setList(posts)
+}
+
+@BindingAdapter("resume_list")
+fun RecyclerView.setResumeInRv(posts: List<Post>) {
+    val adapter = adapter as MainResumeAdapter
     adapter.setList(posts)
 }

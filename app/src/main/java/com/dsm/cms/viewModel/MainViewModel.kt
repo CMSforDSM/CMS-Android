@@ -35,6 +35,9 @@ class MainViewModel(
     private val _notices = MutableLiveData<List<Post>>(arrayListOf())
     val notices: LiveData<List<Post>> = _notices
 
+    private val _resumes = MutableLiveData<List<Post>>(arrayListOf())
+    val resumes: LiveData<List<Post>> = _resumes
+
     init {
         getServerData()
     }
@@ -45,6 +48,7 @@ class MainViewModel(
         setClubsInfo()
         setRecruitments()
         setNotices()
+        setResumes()
     }
 
     private fun setStudentInfo() {
@@ -67,5 +71,9 @@ class MainViewModel(
 
     private fun setNotices() = viewModelScope.launch {
         _notices.value = postRepository.getPosts("NOTIFICATION")
+    }
+
+    private fun setResumes() = viewModelScope.launch {
+        _resumes.value = postRepository.getPosts("RESUME")
     }
 }

@@ -9,7 +9,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseActivity
 import com.dsm.cms.databinding.ActivityMainBinding
-import com.dsm.cms.ext.setupNavigateEvent
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

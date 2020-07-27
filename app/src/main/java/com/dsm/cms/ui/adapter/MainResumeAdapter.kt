@@ -3,7 +3,7 @@ package com.dsm.cms.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dsm.cms.databinding.ItemMarketBinding
+import com.dsm.cms.databinding.ItemResumeBinding
 import com.dsm.cms.domain.entity.Post
 
 class MainResumeAdapter :
@@ -12,7 +12,7 @@ class MainResumeAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainResumeViewHolder {
         return MainResumeViewHolder(
-            ItemMarketBinding.inflate(
+            ItemResumeBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -32,12 +32,10 @@ class MainResumeAdapter :
         notifyDataSetChanged()
     }
 
-    inner class MainResumeViewHolder(private val binding: ItemMarketBinding) :
+    inner class MainResumeViewHolder(private val binding: ItemResumeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(resume: Post) {
             binding.resume = resume
-
-            binding.btnScoutMarket.isEnabled
         }
     }
 }

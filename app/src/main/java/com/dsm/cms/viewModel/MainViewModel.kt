@@ -74,6 +74,6 @@ class MainViewModel(
     }
 
     private fun setResumes() = viewModelScope.launch {
-        _notices.value = postRepository.getPosts("RESUME")
+        _resumes.value = postRepository.getPosts("RESUME")
     }
 }

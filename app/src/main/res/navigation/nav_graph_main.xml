@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/nav_market_fragment"
-        android:name="com.dsm.cms.ui.fragment.MarketFragment"
+        android:name="com.dsm.cms.ui.fragment.ResumeFragment"
         android:label="이적시장"
-        tools:layout="@layout/fragment_market">
+        tools:layout="@layout/fragment_resume">
 
     </fragment>
 

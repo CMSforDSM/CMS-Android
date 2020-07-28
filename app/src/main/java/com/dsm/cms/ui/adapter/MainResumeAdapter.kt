@@ -36,6 +36,8 @@ class MainResumeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(resume: Post) {
             binding.resume = resume
+
+//            binding.btnScoutMarket
         }
     }
 }

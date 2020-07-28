@@ -6,4 +6,6 @@ interface ClubRepository {
     suspend fun getClubInfo(clubName: String): Club
 
     suspend fun getClubsInfo(): List<Club>
+
+    suspend fun scoutStudent(body: Any)
 }

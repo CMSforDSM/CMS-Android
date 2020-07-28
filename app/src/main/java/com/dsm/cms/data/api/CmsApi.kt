@@ -38,4 +38,8 @@ interface CmsApi {
     suspend fun getDetailPost(
         @Path("post_id") postId: Int
     ): Post
+
+    // resume
+    @POST("scouts")
+    suspend fun scoutStudent(@Body body: Any)
 }

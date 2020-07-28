@@ -14,4 +14,9 @@ class ClubRepositoryImpl(
     override suspend fun getClubsInfo(): List<Club> {
         return remoteClubDataSource.getClubsInfo()
     }
+
+    override suspend fun scoutStudent(body: Any) {
+        return remoteClubDataSource.scoutStudent(body)
+    }
+
 }

@@ -20,5 +20,7 @@
     <string name="fail_exception_internal">네트워크를 확인해주세요.</string>
     <string name="fail_exception_notfound">정보를 찾을 수 없습니다.</string>
     <string name="success_scout">스카우트 제의에 성공했습니다.</string>
+    <string name="club_member">동아리 인원</string>
+    <string name="post">게시판</string>
 
 </resources>

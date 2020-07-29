@@ -1,10 +1,8 @@
 package com.dsm.cms.di
 
+import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.domain.entity.Post
-import com.dsm.cms.viewModel.LoginViewModel
-import com.dsm.cms.viewModel.MainViewModel
-import com.dsm.cms.viewModel.PostViewModel
-import com.dsm.cms.viewModel.SplashViewModel
+import com.dsm.cms.viewModel.*
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -16,4 +14,6 @@ val viewModelModule = module {
     viewModel { MainViewModel(get(), get(), get()) }
 
     viewModel { (post: Post) -> PostViewModel(post, get()) }
+
+    viewModel { (club: Club) -> ClubViewModel(club, get(), get(), get()) }
 }

@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.PostActivity"></activity>
+        <activity android:name=".ui.activity.ClubActivity"></activity>
+        <activity android:name=".ui.activity.PostActivity" />
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/SplashTheme">

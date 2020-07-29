@@ -5,7 +5,7 @@ import android.view.View
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseFragment
 import com.dsm.cms.databinding.FragmentRecruitmentBinding
-import com.dsm.cms.ui.adapter.MainPostAdapter
+import com.dsm.cms.ui.adapter.PostAdapter
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -16,7 +16,7 @@ class RecruitmentFragment : BaseFragment<FragmentRecruitmentBinding>() {
 
     private val viewModel: MainViewModel by sharedViewModel()
 
-    private val postAdapter by lazy { MainPostAdapter() }
+    private val postAdapter by lazy { PostAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

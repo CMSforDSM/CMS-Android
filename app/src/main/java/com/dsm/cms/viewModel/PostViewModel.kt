@@ -16,10 +16,10 @@ class PostViewModel(
     val detailPost: LiveData<Post> = _detailPost
 
     init {
-        setDetailPost()
+        getDetailPost()
     }
 
-    private fun setDetailPost() = viewModelScope.launch {
+    private fun getDetailPost() = viewModelScope.launch {
         _detailPost.value = beforePost.merge(
             postRepository.getDetailPost(beforePost.postId)
         )

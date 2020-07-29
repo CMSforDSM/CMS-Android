@@ -13,10 +13,8 @@ import com.dsm.cms.domain.repository.ClubRepository
 import com.dsm.cms.domain.repository.PostRepository
 import com.dsm.cms.error.exception.BadRequestException
 import com.dsm.cms.error.exception.ForbiddenException
-import com.dsm.cms.error.exception.NotFoundException
 import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class MainViewModel(
     private val clubRepository: ClubRepository,
@@ -50,40 +48,22 @@ class MainViewModel(
         getServerData()
     }
 
-    private fun getServerData() {
-        setStudentInfo()
-        setClubInfo(_studentInfo.value?.club!!)
-        setClubsInfo()
-        setRecruitments()
-        setNotices()
-        setResumes()
-    }
-
-    private fun setStudentInfo() {
+    private fun getServerData() = viewModelScope.launch {
         _studentInfo.value = prefStorage.getStudent()
-    }
 
-    private fun setClubInfo(clubName: String?) = viewModelScope.launch {
-        clubName?.let {
-            _myClubInfo.value = clubRepository.getClubInfo(clubName)
+        _studentInfo.value?.club?.let {
+            _myClubInfo.value = clubRepository.getClubInfo(it)
         }
-    }
 
-    private fun setClubsInfo() = viewModelScope.launch {
         _clubsInfo.value = clubRepository.getClubsInfo()
-    }
 
-    private fun setRecruitments() = viewModelScope.launch {
         _recruitments.value = postRepository.getPosts("RECRUITMENT")
-    }
 
-    private fun setNotices() = viewModelScope.launch {
         _notices.value = postRepository.getPosts("NOTIFICATION")
-    }
 
-    private fun setResumes() = viewModelScope.launch {
         _resumes.value = postRepository.getPosts("RESUME")
     }
+
 
     fun offerScout(stdNum: String) = viewModelScope.launch {
         try {

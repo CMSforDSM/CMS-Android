@@ -8,4 +8,6 @@ interface ClubRepository {
     suspend fun getClubsInfo(): List<Club>
 
     suspend fun scoutStudent(body: Any)
+
+    suspend fun applyClub(body: Any)
 }

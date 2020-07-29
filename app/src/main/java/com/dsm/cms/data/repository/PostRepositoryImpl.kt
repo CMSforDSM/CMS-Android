@@ -7,6 +7,10 @@ import com.dsm.cms.domain.repository.PostRepository
 class PostRepositoryImpl(
     private val remotePostDataSource: RemotePostDataSource
 ) : PostRepository {
+    override suspend fun getPosts(type: String): List<Post> {
+        return remotePostDataSource.getPosts(type)
+    }
+
     override suspend fun getPosts(type: String, clubName: String): List<Post> {
         return remotePostDataSource.getPosts(type, clubName)
     }

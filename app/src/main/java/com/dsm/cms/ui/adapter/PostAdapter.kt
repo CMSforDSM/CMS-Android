@@ -6,16 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.databinding.ItemRecruitmentBinding
 import com.dsm.cms.domain.entity.Post
-import com.dsm.cms.ext.setDateAsOfToday
 import com.dsm.cms.ext.setDateManually
 import com.dsm.cms.ui.activity.PostActivity
 
-class MainPostAdapter :
-    RecyclerView.Adapter<MainPostAdapter.MainPostViewHolder>() {
+class PostAdapter :
+    RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     private var items: List<Post> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainPostViewHolder {
-        return MainPostViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+        return PostViewHolder(
             ItemRecruitmentBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -26,17 +25,16 @@ class MainPostAdapter :
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: MainPostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bind(items[position])
     }
-
 
     fun setList(data: List<Post>) {
         items = data
         notifyDataSetChanged()
     }
 
-    inner class MainPostViewHolder(private val binding: ItemRecruitmentBinding) :
+    inner class PostViewHolder(private val binding: ItemRecruitmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
             binding.post = post

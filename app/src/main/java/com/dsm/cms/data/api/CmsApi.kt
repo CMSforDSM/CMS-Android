@@ -42,4 +42,8 @@ interface CmsApi {
     // resume
     @POST("scouts")
     suspend fun scoutStudent(@Body body: Any)
+
+    // apply
+    @POST("applications")
+    suspend fun applyClub(@Body body : Any)
 }

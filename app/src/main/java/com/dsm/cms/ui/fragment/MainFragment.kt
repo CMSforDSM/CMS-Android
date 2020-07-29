@@ -5,7 +5,7 @@ import android.view.View
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseFragment
 import com.dsm.cms.databinding.FragmentMainBinding
-import com.dsm.cms.ui.adapter.MainClubAdapter
+import com.dsm.cms.ui.adapter.ClubAdapter
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -15,7 +15,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val viewModel: MainViewModel by sharedViewModel()
 
-    private val clubsAdapter by lazy { MainClubAdapter() }
+    private val clubsAdapter by lazy { ClubAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

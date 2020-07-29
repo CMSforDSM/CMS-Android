@@ -10,6 +10,8 @@ interface RemoteClubDataSource {
     suspend fun getClubsInfo(): List<Club>
 
     suspend fun scoutStudent(body: Any)
+
+    suspend fun applyClub(body: Any)
 }
 
 class RemoteClubDataSourceImpl(
@@ -20,7 +22,7 @@ class RemoteClubDataSourceImpl(
         return try {
             cmsApi.getClubInfo(clubName)
         } catch (e: Exception) {
-            throw e.cause!!
+            throw errorHandler.getNetworkException(e)
         }
     }
 
@@ -28,13 +30,21 @@ class RemoteClubDataSourceImpl(
         return try {
             cmsApi.getClubsInfo()
         } catch (e: Exception) {
-            throw e.cause!!
+            throw errorHandler.getNetworkException(e)
         }
     }
 
     override suspend fun scoutStudent(body: Any) {
         return try {
             cmsApi.scoutStudent(body)
+        } catch (e: Exception) {
+            throw errorHandler.getNetworkException(e)
+        }
+    }
+
+    override suspend fun applyClub(body: Any) {
+        return try {
+            cmsApi.applyClub(body)
         } catch (e: Exception) {
             throw errorHandler.getNetworkException(e)
         }

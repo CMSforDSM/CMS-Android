@@ -19,4 +19,8 @@ class ClubRepositoryImpl(
         return remoteClubDataSource.scoutStudent(body)
     }
 
+    override suspend fun applyClub(body: Any) {
+        return remoteClubDataSource.applyClub(body)
+    }
+
 }

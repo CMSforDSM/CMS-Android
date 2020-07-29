@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="club"
             type="com.dsm.cms.domain.entity.Club" />
+
+        <variable
+            name="student"
+            type="com.dsm.cms.domain.entity.Student" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,12 +35,12 @@
 
                 <ImageView
                     android:id="@+id/iv_club_icon_item"
+                    imageRes="@{club.logo}"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    imageRes="@{club.logo}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -47,10 +52,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="24dp"
+                    android:text="@{club.clubName}"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:text="@{club.clubName}"
                     app:layout_constraintEnd_toStartOf="@+id/btn_item"
                     app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintStart_toEndOf="@+id/iv_club_icon_item"
@@ -64,8 +69,8 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
-                    android:textColor="@android:color/black"
                     android:text="@{club.introduce}"
+                    android:textColor="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/iv_club_icon_item"
@@ -74,11 +79,12 @@
 
                 <Button
                     android:id="@+id/btn_item"
+                    club_name="@{club.clubName}"
+                    std_club_status="@{student.club}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="동아리 지원"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_club_name_item"
                     app:layout_constraintTop_toTopOf="parent" />

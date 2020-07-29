@@ -1,18 +1,19 @@
 package com.dsm.cms.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.databinding.ItemClubBinding
 import com.dsm.cms.domain.entity.Club
-import com.dsm.cms.viewModel.MainViewModel
+import com.dsm.cms.ui.activity.ClubActivity
 
-class MainClubAdapter() : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolder>() {
+class ClubAdapter : RecyclerView.Adapter<ClubAdapter.ClubViewHolder>() {
     private var items: List<Club> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainClubViewHolder {
-        return MainClubViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClubViewHolder {
+        return ClubViewHolder(
             ItemClubBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -23,7 +24,7 @@ class MainClubAdapter() : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolde
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: MainClubViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ClubViewHolder, position: Int) {
         holder.bind(items[position])
     }
 
@@ -32,11 +33,19 @@ class MainClubAdapter() : RecyclerView.Adapter<MainClubAdapter.MainClubViewHolde
         notifyDataSetChanged()
     }
 
-    inner class MainClubViewHolder(private val binding: ItemClubBinding) :
+    inner class ClubViewHolder(private val binding: ItemClubBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(club: Club) {
             binding.club = club
             binding.btnItem.visibility = View.INVISIBLE
+
+            binding.layoutItemClub.setOnClickListener {
+                itemView.context.apply {
+                    val intent = Intent(this, ClubActivity::class.java)
+                    intent.putExtra("club", club)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }

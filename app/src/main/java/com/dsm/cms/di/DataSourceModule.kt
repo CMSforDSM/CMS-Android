@@ -9,7 +9,7 @@ val dataSourceModule = module {
 
     factory<RemoteStudentDataSource> { RemoteStudentDataSourceImpl(get()) }
 
-    factory<RemoteClubDataSource> { RemoteClubDataSourceImpl(get()) }
+    factory<RemoteClubDataSource> { RemoteClubDataSourceImpl(get(), get()) }
 
     factory<RemotePostDataSource> { RemotePostDataSourceImpl(get()) }
 }

@@ -1,5 +1,5 @@
 package com.dsm.cms.error
 
 interface ErrorHandler {
-    fun getNetworkException(throwable: Throwable)
+    fun getNetworkException(throwable: Throwable): Exception
 }

@@ -1,12 +1,16 @@
 package com.dsm.cms.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dsm.cms.databinding.ItemResumeBinding
 import com.dsm.cms.domain.entity.Post
+import com.dsm.cms.viewModel.MainViewModel
 
-class MainResumeAdapter :
+class MainResumeAdapter(
+    private val viewModel: MainViewModel
+) :
     RecyclerView.Adapter<MainResumeAdapter.MainResumeViewHolder>() {
     private var items: List<Post> = emptyList()
 
@@ -36,6 +40,10 @@ class MainResumeAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(resume: Post) {
             binding.resume = resume
+
+            binding.btnScoutMarket.setOnClickListener {
+                viewModel.offerScout(resume.writer)
+            }
         }
     }
 }

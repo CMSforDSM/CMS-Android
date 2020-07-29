@@ -5,6 +5,8 @@ import com.dsm.cms.data.api.TokenApi
 import com.dsm.cms.data.interceptor.TokenInterceptor
 import com.dsm.cms.data.pref.PrefStorage
 import com.dsm.cms.data.pref.PrefStorageImpl
+import com.dsm.cms.error.ErrorHandler
+import com.dsm.cms.error.ErrorHandlerImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -42,4 +44,7 @@ val apiModule = module {
     }
 
     single<PrefStorage> { PrefStorageImpl(get()) }
+
+    single<ErrorHandler> { ErrorHandlerImpl() }
+
 }

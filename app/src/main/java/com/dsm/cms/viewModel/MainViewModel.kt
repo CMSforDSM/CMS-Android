@@ -4,14 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dsm.cms.R
 import com.dsm.cms.data.pref.PrefStorage
 import com.dsm.cms.domain.entity.Club
 import com.dsm.cms.domain.entity.Post
 import com.dsm.cms.domain.entity.Student
 import com.dsm.cms.domain.repository.ClubRepository
 import com.dsm.cms.domain.repository.PostRepository
+import com.dsm.cms.error.exception.BadRequestException
+import com.dsm.cms.error.exception.ForbiddenException
+import com.dsm.cms.error.exception.NotFoundException
 import com.dsm.cms.util.SingleLiveEvent
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class MainViewModel(
     private val clubRepository: ClubRepository,
@@ -37,6 +42,9 @@ class MainViewModel(
 
     private val _resumes = MutableLiveData<List<Post>>(arrayListOf())
     val resumes: LiveData<List<Post>> = _resumes
+
+    private val _toastEvent = SingleLiveEvent<Int>()
+    val toastEvent: LiveData<Int> = _toastEvent
 
     init {
         getServerData()
@@ -75,5 +83,22 @@ class MainViewModel(
 
     private fun setResumes() = viewModelScope.launch {
         _resumes.value = postRepository.getPosts("RESUME")
+    }
+
+    fun offerScout(stdNum: String) = viewModelScope.launch {
+        try {
+            clubRepository.scoutStudent(
+                hashMapOf(
+                    "target" to stdNum.substring(0, stdNum.length - 4)
+                )
+            )
+            _toastEvent.value = R.string.success_scout
+        } catch (e: Exception) {
+            _toastEvent.value = when (e) {
+                is BadRequestException -> R.string.fail_exception_notfound
+                is ForbiddenException -> R.string.fail_exception_forbidden
+                else -> R.string.fail_exception_internal
+            }
+        }
     }
 }

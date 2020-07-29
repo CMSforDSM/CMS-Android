@@ -19,8 +19,15 @@
     <string name="fail_exception_forbidden">권한이 없습니다.</string>
     <string name="fail_exception_internal">네트워크를 확인해주세요.</string>
     <string name="fail_exception_notfound">정보를 찾을 수 없습니다.</string>
+
     <string name="success_scout">스카우트 제의에 성공했습니다.</string>
+
     <string name="club_member">동아리 인원</string>
     <string name="post">게시판</string>
+
+    <string name="apply_club">동아리 지원</string>
+    <string name="my_club">내 동아리</string>
+    <string name="not_my_club">타 동아리</string>
+    <string name="success_apply">지원에 성공했습니다.</string>
 
 </resources>

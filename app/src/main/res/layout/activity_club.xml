@@ -26,7 +26,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            bind:club="@{viewModel.detailClub}" />
+            bind:club="@{viewModel.detailClub}"
+            bind:student="@{viewModel.studentInfo}"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"

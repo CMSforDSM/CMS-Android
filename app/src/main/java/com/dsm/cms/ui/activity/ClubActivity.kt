@@ -12,6 +12,7 @@ import com.dsm.cms.viewModel.ClubViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
+
 class ClubActivity : BaseActivity<ActivityClubBinding>() {
     override val layoutResId: Int
         get() = R.layout.activity_club

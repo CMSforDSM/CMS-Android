@@ -1,5 +1,6 @@
 package com.dsm.cms.domain.entity
 
+import com.dsm.cms.ext.setDateManually
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -26,7 +27,7 @@ data class Post(
     }
 
     fun merge(post: Post): Post {
-        post.dateTime = this.dateTime
+        post.dateTime = setDateManually(this.dateTime)
         return post
     }
 }

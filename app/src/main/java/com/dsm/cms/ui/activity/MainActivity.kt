@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.dsm.cms.R
 import com.dsm.cms.base.BaseActivity
 import com.dsm.cms.databinding.ActivityMainBinding
+import com.dsm.cms.ext.setupToastEvent
 import com.dsm.cms.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -25,6 +26,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
 
         binding.viewModel = viewModel
+
+        setupToastEvent(viewModel.toastEvent)
 
         navController = findNavController(R.id.frag_main)
 

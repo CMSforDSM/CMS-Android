@@ -19,14 +19,14 @@ class ResumeFragment : BaseFragment<FragmentResumeBinding>() {
 
     private val viewModel: MainViewModel by sharedViewModel()
 
-    private val resumeAdapter by lazy { MainResumeAdapter() }
+    private val resumeAdapter by lazy { MainResumeAdapter(viewModel) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpRecyclerView()
-
         binding.viewModel = viewModel
+
+        setUpRecyclerView()
     }
 
     private fun setUpRecyclerView() {

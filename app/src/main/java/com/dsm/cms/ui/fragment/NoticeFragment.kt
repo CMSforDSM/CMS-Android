@@ -23,6 +23,14 @@ class NoticeFragment : BaseFragment<FragmentNoticeBinding>() {
         setUpRecyclerView()
 
         binding.viewModel = viewModel
+
+        binding.swipeNotice.setOnRefreshListener {
+            viewModel.getPosts("NOTIFICATION")
+
+            postAdapter.notifyDataSetChanged()
+
+            binding.swipeNotice.isRefreshing = false
+        }
     }
 
     private fun setUpRecyclerView() {

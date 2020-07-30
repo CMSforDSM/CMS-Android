@@ -47,7 +47,7 @@ class ClubViewModel(
         _studentInfo.value = prefStorage.getStudent()
     }
 
-    private fun getClubsPosts() = viewModelScope.launch {
+    fun getClubsPosts() = viewModelScope.launch {
         _posts.value = postRepository.getPosts("ACHIEVEMENT", beforeClub.clubName)
     }
 

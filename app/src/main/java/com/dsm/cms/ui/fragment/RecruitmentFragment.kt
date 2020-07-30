@@ -24,6 +24,14 @@ class RecruitmentFragment : BaseFragment<FragmentRecruitmentBinding>() {
         setUpRecyclerView()
 
         binding.viewModel = viewModel
+
+        binding.swipeRecruitment.setOnRefreshListener {
+            viewModel.getPosts("RECRUITMENT")
+
+            postAdapter.notifyDataSetChanged()
+
+            binding.swipeRecruitment.isRefreshing = false
+        }
     }
 
 

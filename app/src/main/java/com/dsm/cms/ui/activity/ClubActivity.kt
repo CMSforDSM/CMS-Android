@@ -36,6 +36,18 @@ class ClubActivity : BaseActivity<ActivityClubBinding>() {
         binding.viewModel = viewModel
 
         setupToastEvent(viewModel.toastEvent)
+
+        binding.swipeClub.setOnRefreshListener {
+            viewModel.getClubsPosts()
+
+            postAdapter.notifyDataSetChanged()
+
+            binding.swipeClub.isRefreshing = false
+        }
+
+        binding.toolbarClub.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun setBtnClickListener() {

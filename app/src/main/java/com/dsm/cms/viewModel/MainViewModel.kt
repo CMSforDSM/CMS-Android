@@ -57,13 +57,29 @@ class MainViewModel(
 
         _clubsInfo.value = clubRepository.getClubsInfo()
 
-        _recruitments.value = postRepository.getPosts("RECRUITMENT")
+        getPosts("RECRUITMENT")
 
-        _notices.value = postRepository.getPosts("NOTIFICATION")
+        getPosts("NOTIFICATION")
 
-        _resumes.value = postRepository.getPosts("RESUME")
+        getPosts("RESUME")
     }
 
+    fun getPosts(type: String) = viewModelScope.launch {
+        when (type) {
+            "RECRUITMENT" -> {
+                _recruitments.value = postRepository.getPosts("RECRUITMENT")
+
+            }
+            "NOTIFICATION" -> {
+                _notices.value = postRepository.getPosts("NOTIFICATION")
+
+            }
+            "RESUME" -> {
+                _resumes.value = postRepository.getPosts("RESUME")
+
+            }
+        }
+    }
 
     fun offerScout(stdNum: String) = viewModelScope.launch {
         try {

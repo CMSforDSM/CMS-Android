@@ -24,6 +24,14 @@ class ResumeFragment : BaseFragment<FragmentResumeBinding>() {
         binding.viewModel = viewModel
 
         setUpRecyclerView()
+
+        binding.swipeResume.setOnRefreshListener {
+            viewModel.getPosts("RESUME")
+
+            resumeAdapter.notifyDataSetChanged()
+
+            binding.swipeResume.isRefreshing = false;
+        }
     }
 
     private fun setUpRecyclerView() {
